@@ -20,7 +20,7 @@ var errReadingInput = errors.New("error reading input, please use y or n")
 
 func main() {
 	if len(os.Args) != 2 {
-		printError(errInvalidArguments, err)
+		printError(errInvalidArguments)
 	}
 
 	originUnit = strings.ToUpper(os.Args[1])
@@ -29,7 +29,7 @@ func main() {
 		fmt.Print("What is the current temperature in " + originUnit + " ? ")
 		_, err := fmt.Scanln(&originValue)
 		if err != nil {
-			printError(errReadingValue, err)
+			printError(errReadingValue)
 		}
 		if originUnit == "C" {
 			convertToFahrenheit(originValue)
@@ -41,7 +41,7 @@ func main() {
 
 		_, err = fmt.Scanln(&shouldConvertAgain)
 		if err != nil {
-			printError(errReadingInput, err)
+			printError(errReadingInput)
 		}
 
 		if strings.ToUpper(strings.TrimSpace(shouldConvertAgain)) != "Y" {
@@ -51,9 +51,9 @@ func main() {
 	}
 }
 
-func printError(err error, verbose error) {
+func printError(err error) {
 	fmt.Fprintf(os.Stderr, "error: %v\n", err)
-	fmt.Fprintf(os.Stderr, "verbose error: %v\n", verbose)
+	// fmt.Fprintf(os.Stderr, "verbose error: %v\n", verbose)
 	os.Exit(1)
 }
 
