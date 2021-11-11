@@ -14,8 +14,7 @@ var shouldConvertAgain string
 
 var err error
 
-var errInvalidArguments = errors.New("invalid arguments")
-var errReadingValue = errors.New("error reading input, please enter a Float number")
+var errInvalidArguments = errors.New("Invalid arguments")
 var errReadingInput = errors.New("Error reading input")
 
 func main() {
@@ -53,7 +52,6 @@ func main() {
 
 func printError(err error) {
 	fmt.Fprintf(os.Stderr, "error: %v\n", err)
-	// fmt.Fprintf(os.Stderr, "verbose error: %v\n", verbose)
 	os.Exit(1)
 }
 
