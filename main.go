@@ -15,7 +15,8 @@ var shouldConvertAgain string
 var err error
 
 var errInvalidArguments = errors.New("invalid arguments")
-var errReadingInput = errors.New("error reading input")
+var errReadingValue = errors.New("error reading input, please enter a Float number")
+var errReadingInput = errors.New("error reading input, please use y or n")
 
 func main() {
 	if len(os.Args) != 2 {
@@ -28,7 +29,7 @@ func main() {
 		fmt.Print("What is the current temperature in " + originUnit + " ? ")
 		_, err := fmt.Scanln(&originValue)
 		if err != nil {
-			printError(errReadingInput, err)
+			printError(errReadingValue, err)
 		}
 		if originUnit == "C" {
 			convertToFahrenheit(originValue)
