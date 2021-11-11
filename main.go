@@ -16,7 +16,7 @@ var err error
 
 var errInvalidArguments = errors.New("invalid arguments")
 var errReadingValue = errors.New("error reading input, please enter a Float number")
-var errReadingInput = errors.New("error reading input, please use y or n")
+var errReadingInput = errors.New("error reading input")
 
 func main() {
 	if len(os.Args) != 2 {
